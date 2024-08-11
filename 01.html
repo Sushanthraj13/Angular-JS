@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="calculatorApp">
+<head>
+    <title>AngularJS Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        angular.module('calculatorApp',[])
+        .controller('CalculatorController', function($scope){
+            $scope.result = 0;
+
+            $scope.add =function(){
+                $scope.result = parseFloat($scope.num1) + parseFloat($scope.num2);
+            };
+
+            $scope.subtract = function(){
+                $scope.result = parseFloat($scope.num1) - parseFloat($scope.num2);
+            };
+
+            $scope.multiply = function(){
+                $scope.result = parseFloat($scope.num1) * parseFloat($scope.num2);
+            };
+
+            $scope.divide =function(){
+                $scope.result = parseFloat($scope.num1) / parseFloat($scope.num2);
+            };
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="CalculatorController">
+        <h1>AngularJS Calculator</h1>
+        <input type="number" ng-model="num1" placeholder="Enter Numbr 1">
+        <input type="number" ng-model="num2" placeholder="Enter Numbr 2">
+        <br><br>
+        <button ng-click="add()">ADD</button>
+        <button ng-click="subtract()">SUBTRACT</button>
+        <button ng-click="multiply()">MULTIPLY</button>
+        <button ng-click="divide()">DIVISION</button>
+        <br><br>
+        <p> RESULT: {{result}}</p>
+    </div>
+    </body>
+</html>
